@@ -4,7 +4,7 @@ Go HTTP(S)代理库, 支持中间人代理解密HTTPS
 安装
 ----
 ```bash
-go get github.com/ouqiang/goproxy
+go get github.com/ChengHoward/goproxy
 ```
 
 使用
@@ -17,7 +17,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/ouqiang/goproxy"
+	"github.com/ChengHoward/goproxy"
 )
 
 func main() {
@@ -52,7 +52,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ouqiang/goproxy"
+	"github.com/ChengHoward/goproxy"
 )
 // 实现证书缓存接口
 type Cache struct {
