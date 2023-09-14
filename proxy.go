@@ -359,13 +359,13 @@ func (p *Proxy) httpsProxy(ctx *Context, tlsClientConn *tls.Conn) {
 	}
 	p.DoRequest(ctx, func(resp *http.Response, err error) {
 		if err != nil {
-			p.delegate.ErrorLog(fmt.Errorf("%s - HTTPS解密, 请求错误: %s", ctx.Req.URL, err))
+			p.delegate.ErrorLog(fmt.Errorf("%s SSLError: %s", ctx.Req.URL, err))
 			_, _ = tlsClientConn.Write(badGateway)
 			return
 		}
 		err = resp.Write(tlsClientConn)
 		if err != nil {
-			p.delegate.ErrorLog(fmt.Errorf("%s - %s", ctx.Req.URL, err))
+			p.delegate.ErrorLog(fmt.Errorf("%s SSLError: %s", ctx.Req.URL, err))
 		}
 		_ = resp.Body.Close()
 	})
