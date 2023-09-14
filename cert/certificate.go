@@ -35,56 +35,25 @@ import (
 
 var (
 	defaultRootCAPem = []byte(`-----BEGIN CERTIFICATE-----
-MIIDuTCCAqGgAwIBAgIUJt9lvPuk/Up6Y74Tu+UpFO2NoGQwDQYJKoZIhvcNAQEL
-BQAwbDElMCMGA1UEAwwcQ2xvdWRieXBhc3MgTWl0bSAobG9jYWxob3N0KTEmMCQG
-A1UECgwdQ2xvdWRieXBhc3MgKGxvY2FsaG9zdCksIEluYy4xCzAJBgNVBAYTAkNO
-MQ4wDAYDVQQHDAVXdWhhbjAeFw0yMzA5MTQwMzUyMjNaFw0zMTA5MTIwMzUyMjNa
-MGwxJTAjBgNVBAMMHENsb3VkYnlwYXNzIE1pdG0gKGxvY2FsaG9zdCkxJjAkBgNV
-BAoMHUNsb3VkYnlwYXNzIChsb2NhbGhvc3QpLCBJbmMuMQswCQYDVQQGEwJDTjEO
-MAwGA1UEBwwFV3VoYW4wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDm
-D/1wGbCHlbK85K//JUm67dgRRB5jyVV4UqUMdZBS4HF9RNlXzJ+uWVvAHYhniVkV
-u6c/n3Ue0HNDFg5jVXviOkeaHpFiY2+g83JqEh0mXKTXg1oVNt7gkKIKpjNTyRxe
-iaObNeKl247Q6JAl/tPc7a+3QAIgAEsfQvhEIi+mg8DWoEryFl+CMGsC/QMxkoyO
-Ki6F8L9J0O726r3MlXhVMvMqXHdU8hi6bC2txr509pGuuHHKdrGbouxSySSFjDWX
-8YuC78dhP80x8myqQjQ7Xv4+ef4xfvbCMZ9B+z/QKJZJVeKFwvVyNyoOpR0MYxTr
-2lvRWQgpqeq2CKRhL04DAgMBAAGjUzBRMB0GA1UdDgQWBBQCXMGeXPDeBVmoHKOZ
-UsmepnJyjTAfBgNVHSMEGDAWgBQCXMGeXPDeBVmoHKOZUsmepnJyjTAPBgNVHRMB
-Af8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBh2Ru9NaTUAGC0r/xQJaIaWmsA
-vDCjc0vuAO5CZXIU7T+cxkkAaRCZ7a13Z97nesui4AjarPXVGzQ8kL6ZuPqaNRf7
-ZlVwpXQBf0F9S8kc2wDbAA41Ahg/Wa/6Y7iINZGTw9zXWPEfkfvcOKRDTNNibMGB
-zaHsTC2opiO6d6/9iHHl0MT2WpWvtsbvpU6VRrBUQSVU0h6dBJvy58St/nevd7NA
-oB4KA3VRUzCBREf6VFSjep/1U1JDwwGzHgQ7+cAMq784FLF0Rlalg7VipWuGjZof
-A9PSWqEVqz/pZWk61QZ/IN/eAgepp+P3o9Ie0rsjInI0+aFpBTRyewLr/hpY
+MIICLDCCAdOgAwIBAgIUHgL2VHERGLVzn9JFqcfkIKevHjYwCgYIKoZIzj0EAwIw
+bDElMCMGA1UEAwwcQ2xvdWRieXBhc3MgTWl0bSAobG9jYWxob3N0KTEmMCQGA1UE
+CgwdQ2xvdWRieXBhc3MgKGxvY2FsaG9zdCksIEluYy4xCzAJBgNVBAYTAkNOMQ4w
+DAYDVQQHDAVXdWhhbjAeFw0yMzA5MTQwNTQ4NDRaFw0zMTA5MTIwNTQ4NDRaMGwx
+JTAjBgNVBAMMHENsb3VkYnlwYXNzIE1pdG0gKGxvY2FsaG9zdCkxJjAkBgNVBAoM
+HUNsb3VkYnlwYXNzIChsb2NhbGhvc3QpLCBJbmMuMQswCQYDVQQGEwJDTjEOMAwG
+A1UEBwwFV3VoYW4wWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQztb2M11L4qAVB
+lJOE8QKV8yihB3WM7Awl1Yzjh4aB8xXjGPZkxT7wseHW02YOyuYowvlDG8R7T9R7
+6s8xREN1o1MwUTAdBgNVHQ4EFgQUPXhs8Q8cuZRtLM/4nbvYyMWycT0wHwYDVR0j
+BBgwFoAUPXhs8Q8cuZRtLM/4nbvYyMWycT0wDwYDVR0TAQH/BAUwAwEB/zAKBggq
+hkjOPQQDAgNHADBEAiBsxeZIEwbI3z708pkRvqZkk4aK7WLgqumlvNrC3yTrFAIg
+VERaTNalktWu9JcOUA94wR2xrJXJJ68+S69aOBjQyZU=
 -----END CERTIFICATE-----
 `)
-	defaultRootKeyPem = []byte(`-----BEGIN PRIVATE KEY-----
-MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDmD/1wGbCHlbK8
-5K//JUm67dgRRB5jyVV4UqUMdZBS4HF9RNlXzJ+uWVvAHYhniVkVu6c/n3Ue0HND
-Fg5jVXviOkeaHpFiY2+g83JqEh0mXKTXg1oVNt7gkKIKpjNTyRxeiaObNeKl247Q
-6JAl/tPc7a+3QAIgAEsfQvhEIi+mg8DWoEryFl+CMGsC/QMxkoyOKi6F8L9J0O72
-6r3MlXhVMvMqXHdU8hi6bC2txr509pGuuHHKdrGbouxSySSFjDWX8YuC78dhP80x
-8myqQjQ7Xv4+ef4xfvbCMZ9B+z/QKJZJVeKFwvVyNyoOpR0MYxTr2lvRWQgpqeq2
-CKRhL04DAgMBAAECggEABejgkxMAhzKMsNaL0gPlDxdk+xL2NfMOTBCvJK7KBX1h
-ICGU46y/zmL8tF4e6HsE29+oitdxwfGtoigPr58jUv45lwhwYgOwrmKJ/7iX7gfO
-ZlV9cQgyu5W/y09NXW2c0Xp3G9EHVfNZ3wNi3Vb+rwZq8aFQ5B/zI2PFzm+TcLVi
-kGTTCBX9xd/U7vmXIvXq3X0nSKoZ30msjFD53wmn44dMgGSqKdPBWh08v8B5aohk
-F6wMOyKqZqVdCSfpACVfVNzpJ/gt7sxXL9sJVU6W8YBzR/h9+lfH5Q5EP44dB3Id
-gwjk1n0ye5brX3BBiVa3S+nznwAPgfNzoUS9cpduoQKBgQDqRNefD5M3Lr4cnGcr
-/d+k/p9tRuwN+4Z47+QzuCvVSzgKF4+crgdQhjVzVolamsB2q1kdRkdHt+kSLw6s
-fZFVSqO88HspiQrTvm8h/7cvBAx1pkxsHTEx72m2d3JVcHs4Ik+McElgqgg5YkyU
-gAhBJp6U/Mbbd1wJjnDn0v8lJwKBgQD7Z0HtCK1+hI2oKO237ytOsRM2xWW2AFba
-qCWsqvhg12ojT7Fq61wV2/ILdH51mkVmTqebcWpigzWU8OU/Ndj5RBo+PO7AYzH/
-BHhIoH+BnQk4Mss4rcQfP0BPeUalpUWIWoYh8p2lSdCx00AYTZ/KFZQWP0Tod59j
-8c5Z/vLxxQKBgQDMmJsHm36irvvx2NZyISJ04rsxoML/4y+p5ziRwsLlYO/sQG94
-ErToqo170ZPbwVNdUIBfhMUz6XZwHxDdrDyFFM6zcALgX4NJMgO02bOOKCcJiNct
-hME2LzVP2jnMTJQQjkaTDG3JMjZEh4kCGF8dJzFQRQMXIMMMxY3tqOST+QKBgQC5
-sRhB03IKjC/xsGF9xZuwYRy3DPDGkNOWaDKDqjkRlqsf7+I0/ikjQDU0/tPVW6C9
-I4WrTAdvQkkWfSRnHwfnfcUAiZMz6VDpc0zBIENt4icIKoRulfLRva9rxEFJYpzM
-TUjb1E9a4f3TCx1BljxbULrz/8GPD6RcdyOa17RsnQKBgQDoGJIXSxlUMlpqU3zB
-ZsHSzqQBf6CflDKoXIHIdt/dFcZR+DSvWUQxb1vB7QNdsdapQMImZHcpkQN2eXhU
-craYLoWmD88YGV2djUxC+k99zK/T7GXoXARlZBB1n5Tnoi18swZ8cWp99zEvj+ea
-INsqK+5x5ooXv6M+U12fiuVNyg==
------END PRIVATE KEY-----
+	defaultRootKeyPem = []byte(`-----BEGIN EC PRIVATE KEY-----
+MHcCAQEEIIclysLKqId6upXxp6eyyX84KJ0w6CHq64SVw4MoWYexoAoGCCqGSM49
+AwEHoUQDQgAEM7W9jNdS+KgFQZSThPEClfMooQd1jOwMJdWM44eGgfMV4xj2ZMU+
+8LHh1tNmDsrmKML5QxvEe0/Ue+rPMURDdQ==
+-----END EC PRIVATE KEY-----
 `)
 )
 
@@ -233,10 +202,10 @@ func (c *Certificate) GenerateCA() (*Pair, error) {
 	tmpl := &x509.Certificate{
 		SerialNumber: big.NewInt(rand.Int63()),
 		Subject: pkix.Name{
-			CommonName:   "Mars",
+			CommonName:   "Cloudbypass",
 			Country:      []string{"China"},
-			Organization: []string{"Goproxy"},
-			Province:     []string{"FuJian"},
+			Organization: []string{"Cloudbypass"},
+			Province:     []string{"Hubei"},
 			Locality:     []string{"Xiamen"},
 		},
 		NotBefore:             time.Now().AddDate(0, -1, 0),
@@ -288,8 +257,8 @@ func (c *Certificate) template(host string, expireYears int) *x509.Certificate {
 		Subject: pkix.Name{
 			CommonName:   host,
 			Country:      []string{"China"},
-			Organization: []string{"Goproxy"},
-			Province:     []string{"FuJian"},
+			Organization: []string{"Cloudbypass"},
+			Province:     []string{"Hubei"},
 			Locality:     []string{"Xiamen"},
 		},
 		NotBefore:             time.Now().AddDate(-1, 0, 0),
@@ -297,7 +266,7 @@ func (c *Certificate) template(host string, expireYears int) *x509.Certificate {
 		BasicConstraintsValid: true,
 		ExtKeyUsage:           []x509.ExtKeyUsage{x509.ExtKeyUsageClientAuth, x509.ExtKeyUsageServerAuth},
 		KeyUsage:              x509.KeyUsageDigitalSignature | x509.KeyUsageDataEncipherment | x509.KeyUsageKeyEncipherment,
-		EmailAddresses:        []string{"qingqianludao@gmail.com"},
+		EmailAddresses:        []string{"437983438@qq.com"},
 	}
 	hosts := strings.Split(host, ",")
 	for _, item := range hosts {
