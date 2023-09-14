@@ -365,7 +365,7 @@ func (p *Proxy) httpsProxy(ctx *Context, tlsClientConn *tls.Conn) {
 		}
 		err = resp.Write(tlsClientConn)
 		if err != nil {
-			p.delegate.ErrorLog(fmt.Errorf("%s - HTTPS解密, response写入客户端失败, %s", ctx.Req.URL, err))
+			p.delegate.ErrorLog(fmt.Errorf("%s - %s", ctx.Req.URL, err))
 		}
 		_ = resp.Body.Close()
 	})
